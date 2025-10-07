@@ -7,6 +7,9 @@ import { getLocale } from "next-intl/server";
 import { getTranslations } from "next-intl/server";
 import { generateHreflangAlternates } from "@/utils/hreflang";
 
+// Mark as dynamic - uses cookies for auth
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata() {
   const t = await getTranslations("meta");
 

@@ -4,6 +4,9 @@ import { getQueryClient } from "@/utils/queryCLient";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import React from "react";
 
+// Mark as dynamic - uses cookies for auth
+export const dynamic = "force-dynamic";
+
 export default async function page() {
   const queryClient = getQueryClient();
 

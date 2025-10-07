@@ -23,7 +23,8 @@ import BackToTop from "@/components/shared/BackToTop";
 import DownloadApp from "@/components/shared/DownloadApp";
 import NextTopLoader from "nextjs-toploader";
 
-const hreflangs = [
+// Hreflang links for SEO (can be used in metadata if needed)
+const _hreflangs = [
   { href: "https://monsbah.com/sa-ar", hreflang: "ar-sa" },
   { href: "https://monsbah.com/kw-ar", hreflang: "ar-kw" },
   { href: "https://monsbah.com/ae-ar", hreflang: "ar-ae" },
@@ -84,6 +85,13 @@ export async function generateMetadata({ params }) {
 export const viewport = {
   themeColor: "#000000",
 };
+
+// Generate static params for all locales
+export async function generateStaticParams() {
+  return routing.locales.map((locale) => ({
+    "country-locale": locale,
+  }));
+}
 
 export default async function RootLayout(props) {
   const params = await props.params;

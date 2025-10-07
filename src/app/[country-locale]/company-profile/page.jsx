@@ -6,6 +6,9 @@ import { getAuthedUser } from "@/services/auth/getAuthedUser";
 import { getCompanyProducts } from "@/services/companies/getCompanyProducts";
 import Image from "next/image";
 
+// Mark as dynamic - uses cookies for auth and searchParams
+export const dynamic = "force-dynamic";
+
 export default async function page({ searchParams }) {
   const profile = await getAuthedUser();
   const { sub_category } = await searchParams;

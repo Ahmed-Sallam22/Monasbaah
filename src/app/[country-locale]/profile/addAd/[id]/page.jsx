@@ -3,6 +3,9 @@ import { getProduct } from "@/services/products/getProduct";
 import { getTranslations } from "next-intl/server";
 import { generateHreflangAlternates } from "@/utils/hreflang";
 
+// Mark as dynamic - uses cookies for auth
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }) {
   const t = await getTranslations("meta");
   const { id } = await params;

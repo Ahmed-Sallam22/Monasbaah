@@ -5,6 +5,9 @@ import { getSubCategories } from "@/services/categories/getSubCategories";
 import { generateHreflangAlternates } from "@/utils/hreflang";
 import { getTranslations } from "next-intl/server";
 
+// Mark as dynamic since it uses searchParams
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ searchParams }) {
   const t = await getTranslations("meta");
   const categorySlug = (await searchParams)?.category ?? null;
@@ -12,7 +15,8 @@ export async function generateMetadata({ searchParams }) {
     typeof categorySlug === "string" && /^[a-z0-9-]+$/i.test(categorySlug);
   const safeSlug = isValidSlug ? categorySlug : null;
 
-  const subCategories = await getSubCategories({
+  // Fetch sub-categories for metadata (future use)
+  const _subCategories = await getSubCategories({
     category_slug: safeSlug,
   });
 

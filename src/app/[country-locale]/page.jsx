@@ -10,6 +10,9 @@ import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { getLocale } from "next-intl/server";
 import { generateHreflangAlternates } from "@/utils/hreflang";
 
+// Mark as dynamic - uses searchParams for filtering
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata() {
   const alternates = await generateHreflangAlternates("/");
   return {

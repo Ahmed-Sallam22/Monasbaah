@@ -1,5 +1,5 @@
 import { LOCALES } from "@/i18n/routing";
-import { getCompanies } from "@/services/companies/getCompanies";
+import getCompanies from "@/services/companies/getCompanies";
 import { BASE_URL } from "@/utils/constants";
 
 export const dynamic = "force-dynamic";

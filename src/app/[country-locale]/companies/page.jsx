@@ -7,6 +7,9 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { generateHreflangAlternates } from "@/utils/hreflang";
 import Pagination from "@/components/shared/Pagination";
 
+// Mark as dynamic - uses searchParams
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ searchParams }) {
   const t = await getTranslations("meta");
   const category = (await searchParams)?.category;

@@ -5,6 +5,9 @@ import { getChats } from "@/services/chats/getChats";
 import { getTranslations } from "next-intl/server";
 import { generateHreflangAlternates } from "@/utils/hreflang";
 
+// Mark as dynamic - uses cookies and searchParams
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ searchParams }) {
   const t = await getTranslations("meta");
 
@@ -24,7 +27,7 @@ export async function generateMetadata({ searchParams }) {
 export default async function Page({ searchParams }) {
   const { user_id } = searchParams;
 
-  const [t, chats, chat] = await Promise.all([
+  const [_t, chats, chat] = await Promise.all([
     getTranslations("meta"),
     getChats(),
     user_id ? getChat(user_id) : Promise.resolve(null),

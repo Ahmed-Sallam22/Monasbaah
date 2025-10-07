@@ -4,9 +4,11 @@ import HowItWorks from "@/components/about/HowItWorks";
 import { generateHreflangAlternates } from "@/utils/hreflang";
 import { getTranslations } from "next-intl/server";
 
+// Mark as dynamic - uses cookies
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ params }) {
-  const { "country-locale": countryLocale } = await params;
-  const [country, locale] = countryLocale.split("-");
+  const { "country-locale": _countryLocale } = await params;
   const t = await getTranslations("meta");
 
   const alternates = await generateHreflangAlternates("/about");

@@ -6,6 +6,9 @@ import UserDetailBoxes from "@/components/profile/main/UserDetailBoxes";
 import { getAuthedUser } from "@/services/auth/getAuthedUser";
 import { getLocale, getTranslations } from "next-intl/server";
 
+// Mark as dynamic - uses cookies for auth
+export const dynamic = "force-dynamic";
+
 export default async function ProfileRootPage() {
   const t = await getTranslations();
   const lang = await getLocale();

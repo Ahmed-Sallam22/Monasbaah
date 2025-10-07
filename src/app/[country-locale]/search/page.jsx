@@ -5,6 +5,9 @@ import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 import { getLocale, getTranslations } from "next-intl/server";
 import { generateHreflangAlternates } from "@/utils/hreflang";
 
+// Mark as dynamic - uses searchParams
+export const dynamic = "force-dynamic";
+
 export async function generateMetadata({ searchParams }) {
   const t = await getTranslations("meta");
   const query = (await searchParams)?.search;

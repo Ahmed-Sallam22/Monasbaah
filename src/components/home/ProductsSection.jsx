@@ -47,10 +47,10 @@ export default function ProductsSection({ userType }) {
     <section className="products_section" ref={sectionRef}>
       <div className="container p-1">
         <div className="row">
-          {allProducts.map((product, index) => (
+          {allProducts.map((product) => (
             <div
               className="col-lg-4 col-md-6 col-12 p-2"
-              key={product?.id || index}
+              key={product?.id}
             >
               {userType === "company" ? (
                 <ProductVerticalCompany
