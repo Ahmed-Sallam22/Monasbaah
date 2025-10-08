@@ -240,7 +240,7 @@
     position: relative;
     .mulen_user_info {
       display: flex;
-      align-items: end;
+        align-items: flex-end ;
       position: relative;
       gap: 24px;
       padding: 8px;
@@ -375,7 +375,7 @@
     }
     .form {
       display: flex !important;
-      align-items: end !important;
+        align-items: flex-end  !important;
       flex-direction: row;
       button {
         width: fit-content !important;

@@ -22,15 +22,28 @@ export async function generateMetadata({ params }) {
   } else if (categoryDecoded) {
     pathname = `/${categoryDecoded}`;
   }
-  const subCategories = await getSubCategories(
-    {
-      category_slug: categoryDecoded,
-    },
-    `/company/sub-categories`
-  );
-  const subCategoryData = subCategories.find(
-    (item) => item.slug === subCategoryDecoded
-  );
+  
+  let subCategoryData = { is_index: true, is_follow: true };
+  
+  if (categoryDecoded) {
+    try {
+      const subCategories = await getSubCategories(
+        {
+          category_slug: categoryDecoded,
+        },
+        `/company/sub-categories`
+      );
+      const found = subCategories?.find(
+        (item) => item.slug === subCategoryDecoded
+      );
+      if (found) {
+        subCategoryData = found;
+      }
+    } catch {
+      // Use default values if subcategory fetch fails
+    }
+  }
+  
   const alternates = await generateHreflangAlternates(pathname);
 
   return {

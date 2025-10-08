@@ -1816,7 +1816,7 @@ body .form .resend-code .resend_link.disabled span {
 body .form .resend-code .timer {
   flex: 1 0;
   display: flex;
-  justify-content: end !important;
+  justify-content: flex-end !important;
 }
 body .form .resend-code .timer span {
   color: #666b88;
@@ -2315,7 +2315,7 @@ body .form .phone_field {
   display: flex;
   align-items: center;
   width: 100%;
-  align-items: end;
+    align-items: flex-end ;
   position: relative;
   direction: rtl !important;
 }
@@ -3380,7 +3380,7 @@ body .replyTo b {
 }
 body .addCommentForm {
   display: flex !important;
-  align-items: end !important;
+    align-items: flex-end  !important;
   flex-direction: row;
   gap: 16px;
 }
@@ -3984,7 +3984,7 @@ body .profile-page .page-header .cover-wrapper .user {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: end;
+    align-items: flex-end ;
 }
 body .profile-page .page-header .cover-wrapper .user .top-wrapper {
   width: 100%;
@@ -7137,7 +7137,7 @@ body main .profile-page .page-header .cover-wrapper .user {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: end;
+    align-items: flex-end ;
 }
 body main .profile-page .page-header .cover-wrapper .user .top-wrapper {
   width: 100%;
@@ -8134,7 +8134,7 @@ body main .product_details .mulen_user {
 }
 body main .product_details .mulen_user .mulen_user_info {
   display: flex;
-  align-items: end;
+    align-items: flex-end ;
   position: relative;
   gap: 24px;
   padding: 8px;
@@ -8271,7 +8271,7 @@ body main .product_details .comments_container .comments_wrapper {
 }
 body main .product_details .comments_container .form {
   display: flex !important;
-  align-items: end !important;
+    align-items: flex-end  !important;
   flex-direction: row;
 }
 body main .product_details .comments_container .form button {

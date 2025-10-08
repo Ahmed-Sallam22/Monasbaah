@@ -19,14 +19,20 @@ export default async function FilterSection({
   const locale = await getLocale();
   const [selectedCountrySlug, selectedLang] = locale.split("-");
 
-  const subCategories = selectedCategory
-    ? await getSubCategories(
+  let subCategories = [];
+  if (selectedCategory) {
+    try {
+      subCategories = await getSubCategories(
         {
           category_slug: selectedCategory,
         },
         `/${user}/sub-categories`
-      )
-    : [];
+      );
+    } catch {
+      // Silently handle invalid category slugs
+      subCategories = [];
+    }
+  }
 
   return (
     <section className="explore_ads">

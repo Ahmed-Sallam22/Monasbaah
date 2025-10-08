@@ -11,14 +11,20 @@ export default async function FilterCompanySection({ selectedCategory }) {
     getCategories(`/company/categories`),
   ]);
 
-  const subCategories = selectedCategory
-    ? await getSubCategories(
+  let subCategories = [];
+  if (selectedCategory) {
+    try {
+      subCategories = await getSubCategories(
         {
           category_slug: selectedCategory,
         },
         `/company/sub-categories`
-      )
-    : [];
+      );
+    } catch {
+      // Silently handle invalid category slugs
+      subCategories = [];
+    }
+  }
 
   return (
     <section className="explore_ads">

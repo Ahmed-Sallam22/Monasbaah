@@ -2,9 +2,6 @@ import createNextIntlPlugin from "next-intl/plugin";
 const withNextIntl = createNextIntlPlugin();
 
 const nextConfig = {
-  // Output configuration for production
-  output: 'standalone',
-  
   // Compress responses
   compress: true,
   

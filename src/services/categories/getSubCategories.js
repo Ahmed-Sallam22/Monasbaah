@@ -4,16 +4,11 @@ export async function getSubCategories(
   params,
   endPoint = "/client/sub-categories"
 ) {
-  try {
-    const res = await serverAxios.get(endPoint, {
-      params,
-    });
+  const res = await serverAxios.get(endPoint, {
+    params,
+  });
 
-    const data = res?.data?.data?.data;
+  const data = res?.data?.data?.data;
 
-    return data;
-  } catch (error) {
-    console.log("Error Fetching subcategories ", error.config);
-    throw error;
-  }
+  return data;
 }
